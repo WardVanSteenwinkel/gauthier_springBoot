@@ -1,0 +1,22 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="/css/style.css" />
+
+    <title>Header</title>
+</head>
+<body>
+    <div id="nav" th:fragment="header">
+            <a id="logo" th:href="@{/home}">
+                <img th:src="@{img/logo goud zonder ring dik.jpg}" alt="Logo Chocolaterie Gauthier" height="100" width="180">
+            </a>
+        <div id="nav-buttons">
+            <a class="mediumButton" th:href="@{/home}">Home</a>
+            <a class="mediumButton" th:href="@{/about}">Over ons</a>
+            <a class="mediumButton" th:href="@{/pralinelist}">Pralines</a>
+        </div>
+    </div>
+
+</body>
+</html>
