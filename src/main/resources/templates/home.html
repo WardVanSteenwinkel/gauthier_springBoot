@@ -7,9 +7,8 @@
 </head>
 <body>
     <div th:replace="fragments/header :: header">Header</div>
-
     <h1>Chocolaterie Gauthier</h1>
-    <h2>Al 57 jaar echte Belgische pralines</h2>
+    <h2 id="home-h2">Al 57 jaar echte Belgische pralines</h2>
     <div class="row">
         <div class="column">
             <img th:src="@{img/gauthierPics/WhatsApp Image 2021-12-21 at 13.46.42.jpeg}" alt="">
@@ -21,14 +20,15 @@
             <img th:src="@{img/gauthierPics/3.jpg}" alt="">
             <img th:src="@{img/gauthierPics/270792671_1386270578471620_5863187730809145128_n.jpg}" alt="">
             <img th:src="@{img/gauthierPics/WhatsApp Image 2021-12-21 at 13.46.47.jpeg}" alt="">
-            <img th:src="@{img/gauthierPics/specu1.jpg}" alt="">
+            <img th:src="@{img/gauthierPics/2.jpg}" alt="">
         </div>
         <div class="column">
             <img th:src="@{img/gauthierPics/4.jpg}" alt="">
             <img th:src="@{img/gauthierPics/WhatsApp Image 2021-12-21 at 13.46.58.jpeg}" alt="">
             <img th:src="@{img/gauthierPics/270754946_955818591722313_8739271831797087872_n.jpg}" alt="">
-            <img th:src="@{img/gauthierPics/2.jpg}" alt="">
+            <img th:src="@{img/gauthierPics/specu1.jpg}" alt="">
         </div>
     </div>
+    <div th:replace="fragments/footer :: footer">footer</div>
 </body>
 </html>
