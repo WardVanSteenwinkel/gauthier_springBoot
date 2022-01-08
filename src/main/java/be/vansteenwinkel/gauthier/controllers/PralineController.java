@@ -1,6 +1,7 @@
 package be.vansteenwinkel.gauthier.controllers;
 
 import be.vansteenwinkel.gauthier.model.Praline;
+import be.vansteenwinkel.gauthier.model.Vulling;
 import be.vansteenwinkel.gauthier.repositories.PralineRepository;
 import be.vansteenwinkel.gauthier.repositories.VullingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import javax.crypto.spec.OAEPParameterSpec;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,7 +24,10 @@ public class PralineController {
     @GetMapping("/pralinelist")
     public String pralineList(Model model){
         List<Praline> pralines = pralineRepository.findAllBy();
+        long nrOfPralines = pralineRepository.count();
         model.addAttribute("pralines", pralines);
+        model.addAttribute("nrOfPralines", nrOfPralines);
+        model.addAttribute("showFilters", false);
         return "pralines";
     }
 
@@ -36,4 +41,12 @@ public class PralineController {
         }
         return "pralinedetails";
     }
+
+    @GetMapping("/pralinelist/filter")
+    public String pralineListFilter(Model model){
+        model.addAttribute("showFilters", true);
+        return "pralines";
+    }
+
+
 }

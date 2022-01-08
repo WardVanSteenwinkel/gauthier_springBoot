@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface VullingRepository extends CrudRepository<Vulling, Integer> {
     List<Vulling> findAllBy();
+
 }

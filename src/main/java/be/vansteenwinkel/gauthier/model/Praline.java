@@ -15,6 +15,7 @@ public class Praline {
     private String info;
 
 
+
     @ManyToMany
     private Collection<Vulling> vullingCollection;
 

@@ -24,6 +24,46 @@ public class Vulling {
     public Vulling(){
 
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getVullingName() {
+        return vullingName;
+    }
+
+    public void setVullingName(String vullingName) {
+        this.vullingName = vullingName;
+    }
+
+    public boolean isAlcohol() {
+        return alcohol;
+    }
+
+    public void setAlcohol(boolean alcohol) {
+        this.alcohol = alcohol;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
+    public Collection<Praline> getPralineCollection() {
+        return pralineCollection;
+    }
+
+    public void setPralineCollection(Collection<Praline> pralineCollection) {
+        this.pralineCollection = pralineCollection;
+    }
 }
 
 
