@@ -39,13 +39,15 @@ public class PralineController {
 
     @GetMapping("/pralinelist/filter")
     public String pralineListFilter(Model model,
-                                    @RequestParam(required = false) String typeChocolade){
-        logger.info("pralineListFilter");
+                                    @RequestParam(required = false) String typeChocolade,
+                                    @RequestParam(required = false) String vulling){
         List<Praline> pralines = pralineRepository.findByFilter(typeChocolade);
+        List<Vulling> vullings = vullingRepository.findAllBy();
         long nrOfPralines = pralineRepository.count();
         model.addAttribute("showFilters", true);
         model.addAttribute("pralines", pralines);
         model.addAttribute("nrOfPralines", nrOfPralines);
+        model.addAttribute("vullings", vullings);
         return "pralines";
     }
 

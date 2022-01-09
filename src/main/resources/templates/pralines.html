@@ -18,13 +18,21 @@
     <div th:if="${showFilters}"  class="filters" >
         <a class="filterButton" th:href="@{/pralinelist}">Geen filter</a>
         <form>
-            <div>
-                <input type="submit" value="Zoek">
+            <input type="submit" value="Zoek">
+            <div class="filter-item">
                 <label for="typeChocolade">Kies je chocolade:</label>
                 <select name="typeChocolade" id="typeChocolade">
                     <option value="zwart">Zwart</option>
                     <option value="melk">Melk</option>
                     <option value="wit">Wit</option>
+                </select>
+            </div>
+            <div class="filter-item">
+                <label for="vulling">Kies je vulling:</label>
+                <select name="vulling" id="vulling">
+                    <div th:each="vulling:${vullings}">
+                        <option th:text="${vulling.vullingName}" id="vulling">vulling</option>
+                    </div>
                 </select>
             </div>
         </form>
