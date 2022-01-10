@@ -6,10 +6,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Collection;
 
 @Entity
 public class Vulling {
+
 
     @Id
     private int id;
@@ -64,6 +66,7 @@ public class Vulling {
     public void setPralineCollection(Collection<Praline> pralineCollection) {
         this.pralineCollection = pralineCollection;
     }
+
 }
 
 

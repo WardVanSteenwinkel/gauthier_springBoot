@@ -13,8 +13,7 @@ public class Praline {
     private String pralineName;
     private String chocolateType;
     private String info;
-
-
+    private String imgSource;
 
     @ManyToMany
     private Collection<Vulling> vullingCollection;
@@ -29,6 +28,14 @@ public class Praline {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getImgSource() {
+        return imgSource;
+    }
+
+    public void setImgSource(String imgSource) {
+        this.imgSource = imgSource;
     }
 
     public String getPralineName() {
@@ -62,4 +69,6 @@ public class Praline {
     public void setVullingCollection(Collection<Vulling> vullingCollection) {
         this.vullingCollection = vullingCollection;
     }
+
+
 }

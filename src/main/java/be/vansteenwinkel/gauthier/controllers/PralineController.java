@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.crypto.spec.OAEPParameterSpec;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,28 +29,41 @@ public class PralineController {
     private Logger logger = LoggerFactory.getLogger(PralineController.class);
 
     @GetMapping("/pralinelist")
-    public String pralineList(Model model){
-        List<Praline> pralines = pralineRepository.findAllBy();
-        long nrOfPralines = pralineRepository.count();
-        model.addAttribute("pralines", pralines);
-        model.addAttribute("nrOfPralines", nrOfPralines);
-        model.addAttribute("showFilters", false);
-        return "pralines";
-    }
-
-    @GetMapping("/pralinelist/filter")
-    public String pralineListFilter(Model model,
-                                    @RequestParam(required = false) String typeChocolade,
-                                    @RequestParam(required = false) String vulling){
-        List<Praline> pralines = pralineRepository.findByFilter(typeChocolade);
+    public String pralineList(Model model,
+                              @RequestParam(required = false) String typeChocolade,
+                              @RequestParam(required = false) Integer vullingId,
+                              @RequestParam(required = false) String filterAlcohol){
+        Optional<Vulling> vulling = vullingRepository.findById(vullingId);
+        if(vulling.isPresent()){
+            List<Praline> pralines = pralineRepository.findByFilter(vulling.get(), typeChocolade);
+            model.addAttribute("pralines", pralines);
+        }
         List<Vulling> vullings = vullingRepository.findAllBy();
         long nrOfPralines = pralineRepository.count();
-        model.addAttribute("showFilters", true);
-        model.addAttribute("pralines", pralines);
         model.addAttribute("nrOfPralines", nrOfPralines);
         model.addAttribute("vullings", vullings);
         return "pralines";
     }
+
+//    @GetMapping("/pralinelist/filter")
+//    public String pralineListFilter(Model model,
+//                                    @RequestParam(required = false) String typeChocolade,
+//                                    @RequestParam(required = false) Integer vullingId,
+//                                    @RequestParam(required = false) String filterAlcohol){
+//        if(!typeChocolade.isEmpty() || vullingId != null){
+//
+//        }
+//        List<Praline> pralines = pralineRepository.findByVullingCollectionIdAndChocolateType(vullingId, typeChocolade);
+//        List<Praline> allPralines = pralineRepository.findAll();
+//        List<Vulling> vullings = vullingRepository.findAllBy();
+//        long nrOfPralines = pralineRepository.count();
+//        model.addAttribute("showFilters", true);
+//        model.addAttribute("allPralines", allPralines);
+//        model.addAttribute("pralines", pralines);
+//        model.addAttribute("nrOfPralines", nrOfPralines);
+//        model.addAttribute("vullings", vullings);
+//        return "pralines";
+//    }
 
     @GetMapping({"/pralinedetails", "/pralinedetails/{id}"})
     public String pralinedetails(Model model,

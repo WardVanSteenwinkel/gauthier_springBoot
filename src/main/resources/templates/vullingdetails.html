@@ -8,7 +8,10 @@
 </head>
 <body>
 <div th:replace="fragments/header :: header">Header</div>
-
+    <h3 th:text="${vulling.vullingName}">vullingName</h3>
+    <p th:text="${vulling.info}">info</p>
+    <p th:if="${vulling.alcohol}">Bevat alcohol</p>
+    <p th:unless="${vulling.alcohol}">Bevat geen alcohol</p>
 
 <div th:replace="fragments/footer :: footer">footer</div>
 </body>

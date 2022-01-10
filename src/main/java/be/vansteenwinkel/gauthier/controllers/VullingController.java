@@ -21,9 +21,11 @@ public class VullingController {
     public String vullingdetails(Model model,
                                  @PathVariable(required = false) Integer id){
         if (id == null) return "vullingdetails";
+
         Optional<Vulling> optionalVulling = vullingRepository.findById(id);
         if (optionalVulling.isPresent()){
-            model.addAttribute("vulling", optionalVulling.get());
+            Vulling vulling =optionalVulling.get();
+            model.addAttribute("vulling", vulling);
         }
         return "vullingdetails";
     }
