@@ -16,7 +16,7 @@
         </div>
         <div class="pralineDetailsItem" style="width: 40%">
             <h3 th:text="${praline.info}" style="font-size: 25px; line-height: 1.8; font-weight: bold; text-align: left">info</h3>
-            <h4>Ingredienten:</h4>
+            <h4>Vulling:</h4>
             <div th:each="vulling:${praline.vullingCollection}">
                 <a th:text="${vulling.vullingName}"
                    th:href="@{|/vullingdetails/${vulling.id}|}">
