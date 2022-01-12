@@ -26,8 +26,6 @@ public class PralineController {
     @Autowired
     private VullingRepository vullingRepository;
 
-    private Logger logger = LoggerFactory.getLogger(PralineController.class);
-
     @GetMapping("/pralinelist")
     public String pralineList(Model model,
                               @RequestParam(required = false) String typeChocolade,

@@ -9,6 +9,5 @@ import java.util.List;
 
 public interface VullingRepository extends CrudRepository<Vulling, Integer> {
     List<Vulling> findAll();
-    List<Praline> findVullingById(Integer vullingId);
 
 }

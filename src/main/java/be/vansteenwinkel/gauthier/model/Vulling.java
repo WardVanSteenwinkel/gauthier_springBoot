@@ -11,8 +11,6 @@ import java.util.Collection;
 
 @Entity
 public class Vulling {
-
-
     @Id
     private int id;
     private String vullingName;
