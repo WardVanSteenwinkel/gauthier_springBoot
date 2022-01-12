@@ -3,23 +3,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="/css/style.css" />
     <title>Praline Details</title>
 </head>
-<body>
+<body style="font-family: 'Cormorant Garamond', serif">
     <div th:replace="fragments/header :: header">Header</div>
-    <h2 th:text="${praline.pralineName}">pralineName</h2>
-    <img th:src="@{|${praline.imgSource}|}" style="width: 300px; height: auto">
-    <div th:each="vulling:${praline.vullingCollection}">
-        <a th:text="${vulling.vullingName}"
-           th:href="@{|/vullingdetails/${vulling.id}|}">
-        </a>
+    <h1 th:text="${praline.pralineName}">pralineName</h1>
+    <div id="wrapperDetails">
+        <div class="pralineDetailsItem">
+            <img th:src="@{|${praline.imgSource}|}" style="width: 400px; height: auto">
+        </div>
+        <div class="pralineDetailsItem" style="width: 40%">
+            <h3 th:text="${praline.info}" style="font-size: 25px; line-height: 1.8; font-weight: bold; text-align: left">info</h3>
+            <h4>Ingredienten:</h4>
+            <div th:each="vulling:${praline.vullingCollection}">
+                <a th:text="${vulling.vullingName}"
+                   th:href="@{|/vullingdetails/${vulling.id}|}">
+                </a>
+            </div>
+        </div>
+        <button onclick="history.back()">Terug</button>
     </div>
-    <div>
-        <h3 th:text="${praline.info}">info</h3>
-    </div>
-
     <div th:replace="fragments/footer :: footer">footer</div>
 </body>
 </html>

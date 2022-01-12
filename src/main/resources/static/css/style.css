@@ -28,12 +28,20 @@ a.mediumButton:active, a.mediumButton:hover{
 h1{
     text-align: center;
     font-size: 50px;
+    font-weight: bold;
 }
 
-#home-h2{
+h2{
     text-align: center;
     font-size: 30px;
     margin-bottom: 70px;
+    font-weight: bold;
+}
+
+h3{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .row {
@@ -96,6 +104,35 @@ h1{
 /*}*/
 
 .card{
-    margin: 20px;
+    margin: 25px;
     display: inline-block;
+}
+
+.filter-item{
+    display: inline-block;
+    margin: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#pralinesGevonden{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#wrapperPralines{
+    margin: auto;
+    width: 90%;
+}
+
+.pralineDetailsItem{
+    display: inline-block;
+    margin: 40px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#wrapperDetails{
+    margin: auto;
+    width: 70%;
 }

@@ -6,41 +6,45 @@
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="/css/style.css" />
     <title>Pralines</title>
 </head>
-<body>
+<body style="font-family: 'Cormorant Garamond', serif">
     <div th:replace="fragments/header :: header">Header</div>
-    <h2>Pralines</h2>
-    <div th:text="${nrOfPralines} + ' pralines gevonden'">Pralines</div>
-
-    <div>
-        <form>
-            <input type="submit" value="Zoek">
-            <div class="filter-item">
-                <label for="typeChocolade">Kies je chocolade:</label>
-                <select name="typeChocolade" id="typeChocolade">
-                    <option value="">All</option>
-                    <option value="zwart">Zwart</option>
-                    <option value="melk">Melk</option>
-                    <option value="wit">Wit</option>
-                </select>
-            </div>
-            <div class="filter-item">
-                <label for="vulling">Kies je vulling:</label>
-                <select name="vullingId" id="vulling">
-                    <option value="">All</option>
-                    <div th:each="vulling:${vullings}">
-                        <option th:text="${vulling.vullingName}" th:value="${vulling.id}">vulling</option>
-                    </div>
-                </select>
-            </div>
-        </form>
-    </div>
-    <div th:each="praline:${pralines}" class="card" style="width: 18rem;">
-        <a th:href="@{|pralinedetails/${praline.id}|}">
-            <img class="card-img-top" th:src="@{|${praline.imgSource}|}" alt="Card image cap">
-            <div class="card-body">
-                <h5 th:text="${praline.pralineName}">praline naam</h5>
-            </div>
-        </a>
+    <h1>De pralines</h1>
+    <h2>Ontdek het assortiment pralines</h2>
+    <div id="wrapperPralines">
+        <div>
+            <form>
+                <div class="filter-item">
+                    <label for="typeChocolade">Kies je chocolade:</label>
+                    <select name="typeChocolade" id="typeChocolade">
+                        <option value="">All</option>
+                        <option value="zwart">Zwart</option>
+                        <option value="melk">Melk</option>
+                        <option value="wit">Wit</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label for="vulling">Kies je vulling:</label>
+                    <select name="vullingId" id="vulling">
+                        <option value="">All</option>
+                        <div th:each="vulling:${vullings}">
+                            <option th:text="${vulling.vullingName}" th:value="${vulling.id}">vulling</option>
+                        </div>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <input type="submit" value="Zoek">
+                </div>
+            </form>
+            <h4 id="pralinesGevonden" th:text="${nrOfPralines} + ' pralines gevonden'" style="margin-left: 20px">Pralines</h4>
+        </div>
+        <div th:each="praline:${pralines}" class="card" style="width: 18rem;">
+            <a th:href="@{|pralinedetails/${praline.id}|}">
+                <img class="card-img-top" th:src="@{|${praline.imgSource}|}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 th:text="${praline.pralineName}" style="color: black; font-weight: bold">praline naam</h5>
+                </div>
+            </a>
+        </div>
     </div>
     <div th:replace="fragments/footer :: footer">footer</div>
 </body>
