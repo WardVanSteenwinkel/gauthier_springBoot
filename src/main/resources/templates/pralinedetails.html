@@ -22,8 +22,10 @@
                    th:href="@{|/vullingdetails/${vulling.id}|}">
                 </a>
             </div>
+            <div style="font-size: 20px">
+                <button onclick="history.back()" style="float: right">Terug</button>
+            </div>
         </div>
-        <button onclick="history.back()">Terug</button>
     </div>
     <div th:replace="fragments/footer :: footer">footer</div>
 </body>
