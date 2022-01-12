@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="/css/style.css" />
     <title>VullingDetails</title>
 </head>
@@ -12,7 +13,14 @@
     <p th:text="${vulling.info}">info</p>
     <p th:if="${vulling.alcohol}">Bevat alcohol</p>
     <p th:unless="${vulling.alcohol}">Bevat geen alcohol</p>
-
+    <div th:each="praline:${pralines}" class="card" style="width: 18rem;">
+        <a th:href="@{|pralinedetails/${praline.id}|}">
+            <img class="card-img-top" th:src="@{|${praline.imgSource}|}" alt="Card image cap">
+            <div class="card-body">
+                <h5 th:text="${praline.pralineName}">praline naam</h5>
+            </div>
+        </a>
+    </div>
 <div th:replace="fragments/footer :: footer">footer</div>
 </body>
 </html>

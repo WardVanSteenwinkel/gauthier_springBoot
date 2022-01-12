@@ -9,12 +9,12 @@
 <body>
     <div id="nav" th:fragment="header">
             <a id="logo" th:href="@{/home}">
-                <img th:src="@{img/logo goud zonder ring dik.jpg}" alt="Logo Chocolaterie Gauthier" height="110" width="198">
+                <img th:src="@{/img/logo goud zonder ring dik.jpg}" alt="Logo Chocolaterie Gauthier" height="110" width="198">
             </a>
         <div id="nav-buttons">
             <a class="mediumButton" th:href="@{/home}">Home</a>
             <a class="mediumButton" th:href="@{/about}">Over ons</a>
-            <a class="mediumButton" th:href="@{/pralinelist}">Pralines</a>
+            <a class="mediumButton" th:href="@{/pralinelist?typeChocolade=&vullingId=}">Pralines</a>
         </div>
     </div>
 
