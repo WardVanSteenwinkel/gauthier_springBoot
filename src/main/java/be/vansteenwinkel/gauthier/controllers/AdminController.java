@@ -18,26 +18,26 @@ public class AdminController {
     @GetMapping("/pralineedit/{id}")
     public String pralineedit(Model model,
                               @PathVariable (required = false) Integer id){
-        if (id == null) return "admin/pralineedit";
-        Optional<Praline> optionalPraline = pralineRepository.findById(id);
-        if (optionalPraline.isPresent()){
-            model.addAttribute("praline", optionalPraline.get());
-        }
         return "admin/pralineedit";
     }
 
     @PostMapping("/pralineedit/{id}")
     public String pralineEditPost(Model model,
                                   @PathVariable Integer id,
-                                  @RequestParam String pralineName){
-        if (id == null) return "admin/pralineedit";
-        Optional<Praline> optionalPraline = pralineRepository.findById(id);
-        if (optionalPraline.isPresent()){
-            Praline praline = optionalPraline.get();
-            praline.setPralineName(pralineName);
-            pralineRepository.save(praline);
-            model.addAttribute("praline", optionalPraline.get());
+                                  @ModelAttribute("praline") Praline praline){
+        pralineRepository.save(praline);
+        return "redirect:/pralinedetails/"+ id;
         }
-        return "admin/pralineedit";
+
+
+
+    @ModelAttribute("praline")
+    public Praline findPraline(@PathVariable Integer id){
+        Optional<Praline> optionalPraline = pralineRepository.findById(id);
+        if(optionalPraline.isPresent()){
+            return optionalPraline.get();
+            }
+            return null;
     }
+
 }

@@ -10,15 +10,33 @@
     <div th:replace="fragments/header :: header">Header</div>
     <h1 th:text="${praline.pralineName}">pralineName</h1>
     <h2 style="margin-bottom: 30px">Administrator</h2>
-    <div id="wrapperDetails">
-        <div class="pralineDetailsItem">
+    <div id="wrapperEdit">
+        <div class="editdiv">
             <img th:src="@{|${praline.imgSource}|}" style="width: 400px; height: auto">
         </div>
-        <div class="pralineDetailsItem" style="width: 40%">
-            <form th:action="@{|/admin/pralineedit/${praline.id}|}" method="post">
-                <label for="pralineName"></label>
-                <input name="pralineName" th:value="${praline.pralineName}" id="pralineName">
-                <div class="filter-item">
+        <div class="editdiv"  style="width: 40%">
+            <form th:action="@{|/admin/pralineedit/${praline.id}|}" th:object="${praline}" method="post">
+                <div class="filter-item-edit">
+                    <label for="pralineName">Naam praline:</label>
+                    <input th:field="*{pralineName}" id="pralineName">
+                </div>
+                <div class="filter-item-edit">
+                    <label for="chocolateType">Soort chocolade:</label>
+                    <select th:field="*{chocolateType}" id="chocolateType">
+                        <option value="zwart">Zwart</option>
+                        <option value="melk">Melk</option>
+                        <option value="wit">Wit</option>
+                    </select>
+                </div>
+                <div class="filter-item-edit">
+                    <label for="info">Geef wat informatie:</label>
+                    <textarea th:field="*{info}" id="info" rows="4" cols="50"></textarea>
+                </div>
+                <div class="filter-item-edit">
+                    <label for="imgSource">Link afbeelding:</label>
+                    <input th:field="*{imgSource}" id="imgSource">
+                </div>
+                <div class="filter-item-edit">
                     <input type="submit" value="Save">
                 </div>
             </form>
