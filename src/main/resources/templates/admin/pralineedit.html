@@ -37,13 +37,15 @@
                     <input th:field="*{imgSource}" id="imgSource">
                 </div>
                 <div class="filter-item-edit">
-                    <input type="submit" value="Save">
+                    <div class="editbuttons">
+                        <input type="submit" value="Save">
+                    </div>
+                    <div style="font-size: 20px" class="editbuttons">
+                        <button onclick="history.back()">Cancel</button>
+                    </div>
                 </div>
             </form>
         </div>
-    </div>
-    <div style="font-size: 20px">
-        <button onclick="history.back()" style="float: right; margin: 20px">Terug</button>
     </div>
 
     <div th:replace="fragments/footer :: footer">footer</div>

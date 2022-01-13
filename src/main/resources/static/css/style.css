@@ -149,4 +149,10 @@ h3{
 .editdiv{
     display: inline-block;
     margin: 30px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.editbuttons{
+    display: inline-block;
 }
